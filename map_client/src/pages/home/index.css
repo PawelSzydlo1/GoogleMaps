@@ -1,0 +1,112 @@
+.yourLocalization {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgb(207, 207, 235);
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.yourLocText {
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  padding: 10px;
+}
+.inputLoc {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.inputLocValue {
+  font-size: 20px;
+  border: 1px solid gray;
+  border-radius: 5px;
+
+  text-align: center;
+}
+.menuList {
+  width: 100%;
+  height: 100%;
+}
+
+.actualMenu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: antiquewhite;
+  margin: 15px;
+}
+
+.headerMenu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: rgb(207, 207, 235);
+}
+
+.defaultInfo {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+}
+
+.defaultInfo p {
+  font-size: 30px;
+  height: min-content;
+}
+.mainManu {
+  background-color: rgb(207, 207, 235);
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  height: 40%;
+  display: flex;
+  justify-content: center;
+}
+
+.yourOrder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgb(207, 207, 235);
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.yourOrderText {
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  padding: 10px;
+}
+
+.yourOrderList {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: antiquewhite;
+  margin: 15px;
+}
+
+.defaultOrder {
+  font-size: 20px;
+  height: min-content;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#header {
+  background-color: rgb(125, 123, 250);
+}
+
+.nearButton {
+  display: flex;
+  flex-direction: row;
+  height: min-content;
+}
