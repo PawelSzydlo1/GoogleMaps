@@ -1,4 +1,4 @@
-export function InfoModal({ setYourOrder }) {
+export function InfoModal({ deleteOrder}) {
   return (
     <div
       class="modal fade"
@@ -33,7 +33,9 @@ export function InfoModal({ setYourOrder }) {
               type="button"
               class="btn btn-primary"
               data-bs-dismiss="modal"
-              onClick={() => setYourOrder({ menuTitle: "", restaurant: "" })}
+              onClick={() => {
+                deleteOrder();
+              }}
             >
               Accept
             </button>

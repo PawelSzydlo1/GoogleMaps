@@ -15,7 +15,7 @@ export function Map() {
   const [statsUser, setStatsUser] = useState(true);
   return (
     <GoogleMap
-      defaultZoom={17}
+      defaultZoom={15}
       defaultCenter={{ lat: 52.232084, lng: 21.015831 }}
     >
       <Marker

@@ -7,11 +7,9 @@ export function WebService() {
   });
   const [dataRestaurant, setDataRestaurant] = useState([]);
   const [openMenu, setOpenMenu] = useState(false);
+  const [deleteStatus, setDeleteStatus] = useState(false);
   const [actualMenu, setActualMenu] = useState([]);
-  const [yourOrder, setYourOrder] = useState({
-    restaurant: "",
-    menuTitle: "",
-  });
+  const [yourOrder, setYourOrder] = useState([]);
   const [yourPosition, setYourPosition] = useState({
     lat: 52.232084,
     lng: 21.018831,
@@ -41,7 +39,6 @@ export function WebService() {
         setRestaurant(idNearRest);
         openActualMenu(idNearRest);
         setOpenMenu(true);
-    
       }
     });
   };
@@ -59,27 +56,40 @@ export function WebService() {
       (element) => element.id === idOrder
     );
 
-    setYourOrder({
-      restaurant: restaurant.restaurantName,
-      menuTitle: menu.menuTitle,
-    });
+    setYourOrder([
+      ...yourOrder,
+      {
+        id: menu.id,
+        restaurant: restaurant.restaurantName,
+        menuTitle: menu.menuTitle,
+      },
+    ]);
   };
   MapComponent(dataRestaurant, openActualMenu, yourPosition);
+  const [idDeteteOrder, setIdDeteteOrder] = useState(0);
+
+  const deleteOrder = () => {
+    console.log("idelement", idDeteteOrder);
+    yourOrder.splice(
+      yourOrder.findIndex((element) => element.id === idDeteteOrder),
+      1
+    );
+    setDeleteStatus(!deleteStatus);
+  };
 
   return {
-    dataRestaurant,
     downloadData,
-    openActualMenu,
     openMenu,
     actualMenu,
     setOpenMenu,
     yourOrder,
     findOrder,
-    setYourOrder,
     restaurant,
     yourPosition,
     setYourPosition,
     nearRestaurant,
-    Map,
+    deleteOrder,
+    deleteStatus,
+    setIdDeteteOrder,
   };
 }

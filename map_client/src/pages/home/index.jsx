@@ -15,17 +15,21 @@ export function Home() {
     setOpenMenu,
     yourOrder,
     findOrder,
-    setYourOrder,
     restaurant,
     yourPosition,
     setYourPosition,
     nearRestaurant,
+    deleteOrder,
+    deleteStatus,
+    setIdDeteteOrder,
   } = WebService();
+
+  
   useEffect(() => {
     downloadData();
   }, []);
 
-  useEffect(() => {}, [yourPosition]);
+  useEffect(() => {}, [yourPosition, deleteStatus]);
 
   const [acceptMenu, setAcceptMenu] = useState("");
   const WrappedMap = withScriptjs(withGoogleMap(Map));
@@ -130,18 +134,25 @@ export function Home() {
             <p>Your Order</p>
           </div>
 
-          {yourOrder.menuTitle !== "" ? (
+          {yourOrder.length !== 0 ? (
             <div>
               <div className="yourOrderList" id="header">
                 <p className="px-4 py-2 m-0">Menu</p>
                 <p className="px-4 py-2 m-0">Restaurant </p>
                 <p className="px-4 py-2 m-0">Time</p>
               </div>
-              <div className="yourOrderList">
-                <p className="px-4 py-2 m-0">{yourOrder.menuTitle}</p>
-                <p className="px-4 py-2 m-0">{yourOrder.restaurant}</p>
-                <Minutnik setYourOrder={setYourOrder} />
-              </div>
+              {yourOrder.map((element) => (
+                <div className="yourOrderList" key={element.id}>
+                  <p className="px-4 py-2 m-0">{element.menuTitle}</p>
+                  <p className="px-4 py-2 m-0">{element.restaurant}</p>
+                  {console.log(element)}
+                  <Minutnik
+                    order={element}
+                    deleteOrder={deleteOrder}
+                    setIdDeteteOrder={setIdDeteteOrder}
+                  />
+                </div>
+              ))}
             </div>
           ) : (
             <div className="defaultOrder">
