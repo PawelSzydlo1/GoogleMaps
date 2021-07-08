@@ -47,7 +47,7 @@ export function WebService() {
     setOpenMenu(true);
     setRestaurant(Rest);
     const menu = dataRestaurant.find((element) => element.id === Rest.id);
-
+    console.log(dataRestaurant.find((element) => element.id === Rest.id));
     setActualMenu(menu.menuModelSet);
   };
 
@@ -62,6 +62,7 @@ export function WebService() {
         id: menu.id,
         restaurant: restaurant.restaurantName,
         menuTitle: menu.menuTitle,
+        price: menu.price,
       },
     ]);
   };
@@ -69,7 +70,6 @@ export function WebService() {
   const [idDeteteOrder, setIdDeteteOrder] = useState(0);
 
   const deleteOrder = () => {
-    console.log("idelement", idDeteteOrder);
     yourOrder.splice(
       yourOrder.findIndex((element) => element.id === idDeteteOrder),
       1

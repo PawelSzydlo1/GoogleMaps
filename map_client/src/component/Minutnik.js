@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { InfoModal } from "./InfoModal";
 import "./component.css";
 export function Minutnik({ order, deleteOrder, setIdDeteteOrder }) {
-  const [defaultTime, setDefaultTime] = useState(10000);
+  const [defaultTime, setDefaultTime] = useState(300000);
   const [minutes, setMinutes] = useState(Math.floor(defaultTime / 60 / 1000));
   const [seconds, setSeconds] = useState(
     (defaultTime - minutes * 60 * 1000) / 1000

@@ -24,7 +24,6 @@ export function Home() {
     setIdDeteteOrder,
   } = WebService();
 
-  
   useEffect(() => {
     downloadData();
   }, []);
@@ -107,6 +106,7 @@ export function Home() {
                   <p className="px-4 py-2 m-0">{restaurant.restaurantName}</p>
                 </strong>
                 <p className="px-4 py-2 m-0">Decription</p>
+                <p className="px-4 py-2 m-0">Price</p>
               </div>
 
               {actualMenu.map((element) => (
@@ -119,7 +119,9 @@ export function Home() {
                   <Modal element={acceptMenu} findOrder={findOrder}></Modal>
 
                   <p className="px-4 py-2 m-0">{element.menuTitle}</p>
+                  <p className="px-4 py-2 m-0"></p>
                   <p className="px-4 py-2 m-0">{element.description}</p>
+                  <p className="px-4 py-2 m-0">{element.price} PLN</p>
                 </div>
               ))}
             </div>
@@ -139,13 +141,16 @@ export function Home() {
               <div className="yourOrderList" id="header">
                 <p className="px-4 py-2 m-0">Menu</p>
                 <p className="px-4 py-2 m-0">Restaurant </p>
+                <p className="px-4 py-2 m-0">Price</p>
                 <p className="px-4 py-2 m-0">Time</p>
               </div>
               {yourOrder.map((element) => (
                 <div className="yourOrderList" key={element.id}>
                   <p className="px-4 py-2 m-0">{element.menuTitle}</p>
                   <p className="px-4 py-2 m-0">{element.restaurant}</p>
-                  {console.log(element)}
+                  <p className="px-4 py-2 m-0">{element.price} PLN</p>
+                  
+
                   <Minutnik
                     order={element}
                     deleteOrder={deleteOrder}
