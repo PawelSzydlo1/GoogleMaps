@@ -17,15 +17,25 @@ public class MenuModel {
 
     private String description;
 
+    private Double price;
     @JsonIgnore
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "rest_id")
     private RestaurantModel restaurantModel;
 
-    public MenuModel(String menuTitle, String description, RestaurantModel restaurantModel) {
+    public MenuModel(String menuTitle, String description, Double price, RestaurantModel restaurantModel) {
         this.menuTitle = menuTitle;
         this.description = description;
+        this.price = price;
         this.restaurantModel = restaurantModel;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
     }
 
     public MenuModel() {
